@@ -1,4 +1,4 @@
-# Ex.No:3a Develop program to create a text field and a button “Navigate”. When you enter “www.gmail.com” and press navigate button it should open google page using Implicit Intents.
+# Ex.No:2A Develop program to create a text field and a button “Navigate”. When you enter “www.gmail.com” and press navigate button it should open google page using Implicit Intents.
 
 
 ## AIM:
@@ -10,19 +10,137 @@ To create a navigate button using Implicit Intent to display the gmail page usin
 Latest Version Android Studio
 
 ## ALGORITHM:
+Step 1:Start the application.
 
+Step 2:Create the user interface using XML layout.
+
+Step 3:Create an EditText to enter the URL.
+
+Step 4:Create a Button to perform the search operation.
+
+Step 5:Initialize the EditText and Button using findViewById().
+
+Step 6:Set an OnClickListener() for the Button.
+
+Step 7:Get the URL entered by the user using getText().toString().
+
+Step 8:Create an implicit Intent using Intent.ACTION_VIEW.
+
+Step 9:Convert the entered URL into a URI using Uri.parse().
+
+Step 10:Pass the Intent to startActivity() to open the appropriate application.
+
+Step 11:Android identifies a suitable application, such as a web browser, to handle the request.
+
+Step 12:Stop
 
 
 ## PROGRAM:
 ```
 /*
 Program to print the text “Implicitintent”.
-Developed by:
-Registeration Number :
+Developed by:RITHISH R
+Registeration Number :212224040278
 */
+```
+## MainActivity.java
+```python
+package com.example.ex2implicit;
+
+import android.os.Bundle;
+import androidx.appcompat.app.AppCompatActivity;
+import android.content.Intent;
+import android.net.Uri;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        EditText editText;
+        Button button;
+
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        button = findViewById(R.id.btn);
+        editText = (EditText) findViewById(R.id.editText);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String url=editText.getText().toString();
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                startActivity(intent);
+            }
+        });
+    }
+}
+```
+
+## activity_main.xml
+```python
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="374dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="252dp"
+        android:background="@android:drawable/edit_text"
+        android:backgroundTint="#95D3FD"
+        android:hint="Enter the URL...."
+        android:inputType="text"
+        android:padding="15dp"
+        android:singleLine="true"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textColorHint="#000000"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.567"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn"
+        android:layout_width="288dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#5146E5"
+        android:text="SEARCH"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:cornerRadius="14dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editText"
+        app:layout_constraintVertical_bias="0.26" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
 ```
 
 ## OUTPUT
+
+<img width="1920" height="1200" alt="Screenshot (156)" src="https://github.com/user-attachments/assets/5cc1ebca-8bee-43f2-a4c9-b6b0cf88bced" />
+<img width="1920" height="1200" alt="Screenshot (157)" src="https://github.com/user-attachments/assets/dfd49428-abdf-47a8-a07a-7ea1f40ae91b" />
+<img width="1920" height="1200" alt="Screenshot (158)" src="https://github.com/user-attachments/assets/3e10abfc-9cf3-4576-98ef-c936507e0288" />
+<img width="1920" height="1200" alt="Screenshot (159)" src="https://github.com/user-attachments/assets/f8e65cb3-b456-4f74-95d2-103be6f24c22" />
+
+
 
 
 
